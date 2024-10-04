@@ -1,0 +1,14 @@
+{
+	"extensionDescription": {
+		"message": "Grant access to the web contents",
+		"description": "Explains simplifies summarizes web content."
+	},
+	"buttonDefaultTooltip": {
+		"message": "Launch AccessAI",
+		"description": "Button title: 'Make this content understandable'"
+	},
+	"commandLaunchAccessAI": {
+		"message": "Launch the AccessAI",
+		"description": "Command (Ctrl+Shift+Y): 'Launch the AccessAI simplifying the page contents making it understandable'"
+	}
+}

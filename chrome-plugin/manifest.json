@@ -1,0 +1,103 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+	"name": "AccessAI",
+	"authors": "Rainer Talvar, Henrik Peegel, Hans Herman Männik, Oskars Grauzis",
+	"homepage_url": "https://github.com/RainerTal/Baltic-AI-Hack",
+	"icons": {
+		"16": "src/ui/resources/icon_16.png",
+		"32": "src/ui/resources/icon_32.png",
+		"48": "src/ui/resources/icon_48.png",
+		"64": "src/ui/resources/icon_64.png",
+		"128": "src/ui/resources/icon_128.png"
+	},
+	"version": "1.0.1",
+	"description": "__MSG_extensionDescription__",
+	"content_scripts": [
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"run_at": "document_start",
+			"js": [
+				"js/accessai-start.js"
+			],
+			"css": ["src/ui/AccessAI-main.css"],
+			"all_frames": true,
+			"match_about_blank": true,
+			"match_origin_as_fallback": true
+		},
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"run_at": "document_idle",
+			"js": [
+				"js/accessai-idle.js"
+			]
+		}
+	],
+	"background": {
+		"service_worker": "js/accessai-extension-background.js"
+	},
+	"side_panel": {
+		"default_path": "src/ui/pages/panel.html"
+	},
+	"options_ui": {
+		"browser_style": true,
+		"page": "src/ui/pages/options.html",
+		"open_in_tab": false
+	},
+	"action": {
+		"default_icon": {
+			"16": "src/ui/resources/icon_16.png",
+			"32": "src/ui/resources/icon_32.png",
+			"48": "src/ui/resources/icon_48.png",
+			"64": "src/ui/resources/icon_64.png",
+			"128": "src/ui/resources/icon_128.png"
+		},
+		"default_title": "__MSG_buttonDefaultTooltip__"
+	},
+	"commands": {
+		"launch-explainer": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+K"
+			},
+			"description": "__MSG_commandLaunchAccessAI__"
+		}
+	},
+	"web_accessible_resources": [
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"resources": [
+				"src/ui/AccessAI-main.css"
+			]
+		}
+	],
+	"permissions": [
+		"contextMenus",
+		"downloads",
+		"storage",
+		"tabs",
+		"activeTab",
+		"scripting",
+		"offscreen",
+		"sidePanel",
+		"declarativeNetRequest"
+	],
+	"optional_permissions": [
+		"identity",
+		"clipboardWrite",
+		"nativeMessaging",
+		"bookmarks"
+	],
+	"host_permissions": [
+		"<all_urls>"
+	],
+	"devtools_page": "src/devtools/devtools.html",
+	"incognito": "spanning",
+	"manifest_version": 3,
+	"default_locale": "en"
+}
