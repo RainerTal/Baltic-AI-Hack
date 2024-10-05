@@ -1,11 +1,32 @@
-if(document.querySelector('.execute-button')){
-document.querySelector('.execute-button').addEventListener('click', () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, { action: "start-translate" });
-    });
-});
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const translateButton = document.querySelector('.execute-button');
+    if (translateButton) {
+        translateButton.addEventListener('click', function () {
+            // Get the selected language from the dropdown
+            const languageSelect = document.getElementById('language-select');
+            if (languageSelect) {
+                const selectedLanguage = languageSelect.value;
 
+                chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                    chrome.runtime.sendMessage({
+                        action: "start-translate",
+                        language: selectedLanguage
+                    }, function (response) {
+                        if (chrome.runtime.lastError) {
+                            console.error("Error sending message:", chrome.runtime.lastError.message);
+                        } else {
+                            console.log("Response from content script:", response);
+                        }
+                    });
+                });
+            } else {
+                console.error("Language select element not found.");
+            }
+        });
+    } else {
+        console.error("Translate button not found.");
+    }
+});
 
 if(document.getElementById('audio-player'))
 {

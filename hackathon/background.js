@@ -101,6 +101,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
 });
 */
+//-------------------------------------------------------------
+//-------------------------------------------------------------
+//-------------------------------------------------------------
+//-------------------------------------------------------------
 const convertBlobToBase64 = blob => new Promise(resolve => {
     const reader = new FileReader();
     reader.readAsDataURL(blob);
