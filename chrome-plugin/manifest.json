@@ -72,7 +72,8 @@
 				"<all_urls>"
 			],
 			"resources": [
-				"src/ui/AccessAI-main.css"
+				"src/ui/AccessAI-main.css",
+				"js/accessai-idle.js"
 			]
 		}
 	],
