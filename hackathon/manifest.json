@@ -1,11 +1,29 @@
 {
-  "manifest_version": 3,
-  "name": "AccessAI",
-  "version": "1.0",
-  "description": "A simple Chrome extension to demonstrate basic concepts.",
+	"manifest_version": 3,
+	"default_locale": "en",
+	"name": "AccessAI",
+	"authors": "Rainer Talvar, Henrik Peegel, Hans Herman Männik, Oskars Grauzis",
+	"homepage_url": "https://github.com/RainerTal/Baltic-AI-Hack",
+	"icons": {
+		"16": "assets/icon/accessai_16.png",
+		"32": "assets/icon/accessai_32.png",
+		"48": "assets/icon/accessai_48.png",
+		"64": "assets/icon/accessai_64.png",
+		"128": "assets/icon/accessai_128.png"
+	},
+	"version": "1.0.1",
+	"description": "__MSG_extensionDescription__",
   "action": {
     "default_popup": "index.html",
-    "default_icon": "icon.jpg"
+    "default_icon": "icon.jpg",
+	"default_icon": {
+			"16": "assets/icon/accessai_16.png",
+			"32": "assets/icon/accessai_32.png",
+			"48": "assets/icon/accessai_48.png",
+			"64": "assets/icon/accessai_64.png",
+			"128": "assets/icon/accessai_128.png"
+		},
+		"default_title": "__MSG_buttonDefaultTooltip__"
   },
   "permissions": [
     "activeTab",
