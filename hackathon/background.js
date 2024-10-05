@@ -1,6 +1,6 @@
 const requestToAi = (input_array) => {
 
-    const auth = 'eyJraWQiOiIyMDI0MTAwMjA4NDIiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJBYmlQWEVsakNWLWU4OWZlODYxLTQ0OGYtNDkyMS1iNDhkLWE1ZDBhOWZlZTQzYiIsImlkIjoiQWJpUFhFbGpDVi1lODlmZTg2MS00NDhmLTQ5MjEtYjQ4ZC1hNWQwYTlmZWU0M2IiLCJyZWFsbWlkIjoiQWJpUFhFbGpDViIsImp0aSI6IjgyOGIxMThjLWNiNmYtNDg0Yi05MWUxLWYwYWZiOWQzMWQzNyIsImlkZW50aWZpZXIiOiJlODlmZTg2MS00NDhmLTQ5MjEtYjQ4ZC1hNWQwYTlmZWU0M2IiLCJnaXZlbl9uYW1lIjoibm90c2V0IiwiZmFtaWx5X25hbWUiOiJub3RzZXQiLCJuYW1lIjoic3R1ZGVudF9hNmZuaTciLCJlbWFpbCI6InN0dWRlbnRfYTZmbmk3QHRlY2h6b25lLmlibS5jb20iLCJzdWIiOiJzdHVkZW50X2E2Zm5pNyIsImF1dGhuIjp7InN1YiI6InN0dWRlbnRfYTZmbmk3IiwiaWFtX2lkIjoiQWJpUFhFbGpDVi1lODlmZTg2MS00NDhmLTQ5MjEtYjQ4ZC1hNWQwYTlmZWU0M2IiLCJuYW1lIjoic3R1ZGVudF9hNmZuaTciLCJnaXZlbl9uYW1lIjoibm90c2V0IiwiZmFtaWx5X25hbWUiOiJub3RzZXQiLCJlbWFpbCI6InN0dWRlbnRfYTZmbmk3QHRlY2h6b25lLmlibS5jb20ifSwiYWNjb3VudCI6eyJ2YWxpZCI6dHJ1ZSwiYnNzIjoiOGE0MjU1N2Y4MmViNDU2MjgyNzM3OGM5N2Y4MzQzNzQiLCJpbXNfdXNlcl9pZCI6IjEyNzQ3NTYzIiwiZnJvemVuIjp0cnVlLCJpc19lbnRlcnByaXNlX2FjY291bnQiOmZhbHNlLCJlbnRlcnByaXNlX2lkIjoiZWU1NzVjNTc3ODc2NGQ0MDkxNTVhYTM1NzgwZWM4ZDEiLCJpbXMiOiIyOTQ1MjM3In0sImlhdCI6MTcyODE0MDQ3MiwiZXhwIjoxNzI4MTQ0MDcyLCJpc3MiOiJodHRwczovL2lhbS5jbG91ZC5pYm0uY29tL2lkZW50aXR5IiwiZ3JhbnRfdHlwZSI6InVybjppYm06cGFyYW1zOm9hdXRoOmdyYW50LXR5cGU6YXBpa2V5Iiwic2NvcGUiOiJpYm0gb3BlbmlkIiwiY2xpZW50X2lkIjoiZGVmYXVsdCIsImFjciI6MSwiYW1yIjpbInB3ZCJdfQ.LGgk2Dmka77C40dhNlwXN5x221Emqtf03klCI5vceFn_klu97RtWVGu2L9AN4px4rCJaMD__WyAXijq1cKNMMWk71lcnaPE-_fviRwvhvo5NOh1PprFD6ALqf01n8ZiIIGvRkhj1vy6WMm3eLYggkSX3jn5sbFqECX6-DwRAMY7OHVYoreUbon4qBjmxP7kqwGiy85AMYI7_CO4IyQCZm-DXbnqt5zHNm1sDYjrzAfrIQ11Lmkiy3gF2-N91D5xhDZ-h8xqEQpJ7ZHrw5MODWgJDo5rv7wqQ1nsLbZI24UOHYUYGeuMC2NI2elmVRb_ybTVYx51FG0uryIiuSBZJfA';
+    const auth = 'eyJraWQiOiIyMDI0MTAwMjA4NDIiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJBYmlQWEVsakNWLWU4OWZlODYxLTQ0OGYtNDkyMS1iNDhkLWE1ZDBhOWZlZTQzYiIsImlkIjoiQWJpUFhFbGpDVi1lODlmZTg2MS00NDhmLTQ5MjEtYjQ4ZC1hNWQwYTlmZWU0M2IiLCJyZWFsbWlkIjoiQWJpUFhFbGpDViIsImp0aSI6IjQyZTUxZjdiLWQwMDEtNDk3OS1iYzNmLWZmMWI1MmZjOWQxYiIsImlkZW50aWZpZXIiOiJlODlmZTg2MS00NDhmLTQ5MjEtYjQ4ZC1hNWQwYTlmZWU0M2IiLCJnaXZlbl9uYW1lIjoibm90c2V0IiwiZmFtaWx5X25hbWUiOiJub3RzZXQiLCJuYW1lIjoic3R1ZGVudF9hNmZuaTciLCJlbWFpbCI6InN0dWRlbnRfYTZmbmk3QHRlY2h6b25lLmlibS5jb20iLCJzdWIiOiJzdHVkZW50X2E2Zm5pNyIsImF1dGhuIjp7InN1YiI6InN0dWRlbnRfYTZmbmk3IiwiaWFtX2lkIjoiQWJpUFhFbGpDVi1lODlmZTg2MS00NDhmLTQ5MjEtYjQ4ZC1hNWQwYTlmZWU0M2IiLCJuYW1lIjoic3R1ZGVudF9hNmZuaTciLCJnaXZlbl9uYW1lIjoibm90c2V0IiwiZmFtaWx5X25hbWUiOiJub3RzZXQiLCJlbWFpbCI6InN0dWRlbnRfYTZmbmk3QHRlY2h6b25lLmlibS5jb20ifSwiYWNjb3VudCI6eyJ2YWxpZCI6dHJ1ZSwiYnNzIjoiOGE0MjU1N2Y4MmViNDU2MjgyNzM3OGM5N2Y4MzQzNzQiLCJpbXNfdXNlcl9pZCI6IjEyNzQ3NTYzIiwiZnJvemVuIjp0cnVlLCJpc19lbnRlcnByaXNlX2FjY291bnQiOmZhbHNlLCJlbnRlcnByaXNlX2lkIjoiZWU1NzVjNTc3ODc2NGQ0MDkxNTVhYTM1NzgwZWM4ZDEiLCJpbXMiOiIyOTQ1MjM3In0sImlhdCI6MTcyODE0NzQzOCwiZXhwIjoxNzI4MTUxMDM4LCJpc3MiOiJodHRwczovL2lhbS5jbG91ZC5pYm0uY29tL2lkZW50aXR5IiwiZ3JhbnRfdHlwZSI6InVybjppYm06cGFyYW1zOm9hdXRoOmdyYW50LXR5cGU6YXBpa2V5Iiwic2NvcGUiOiJpYm0gb3BlbmlkIiwiY2xpZW50X2lkIjoiZGVmYXVsdCIsImFjciI6MSwiYW1yIjpbInB3ZCJdfQ.iNL7AcDP9f2zUUaVTPFpzbr6TatZieokdEaAsIPmOrD1NJzGnWvEMtN-ckivHTNyGEaBQH42XmJF5duz3EwSTB7DGwLreaczhhLVvb5qeSt3U9-CBlrHiMDaaaAi59U9p_zz63As3aePz_2UixFNryeLY88BTgyHbsSpHEFE3fuFzTKZpe4luCzNDvOcTpZnFTMbh69KsJA5KL6RVT-uXxUE-XcIsKWRdN0CCtRFoY0ZZBi800H1nrTJDjvDIoSnILcf9k42m5hLcnyQ8Me3dYSMVeIthBOfCaOhNnDHBmKB8U6pfj9Tn1qe5QhgmOeLICR4vkGbralE8f7yeTE0QA';
 
     const system_messages = `Role Definition: You are a translator specifically designed to translate JavaScript arrays from Estonian to English.
 
@@ -75,8 +75,8 @@ Translate the following array into English: ${input_array}`;
 
 console.log("alive lol")
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+	console.log("action: "+message.action);
     if (message.action === "fetchTranslation") {
-        // Example of your translation logic
         console.log("starting request")
 
         const originalText = message.text;
@@ -87,8 +87,55 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         // Send the translated text back to the content script
         sendResponse({ translatedText: translatedText });
-    }
+    }else if(message.action === "fetchTTS"){
+        fetchTTS().then((bl) => {
+            sendResponse({ "action": "play_audio", "base64": bl });
+        }).catch((error) => {
+            console.error("Error fetching TTS:", error);
+        });
+        return true;
+	}
 
-    // Return true to indicate you will send a response asynchronously
     return true;
 });
+
+
+const convertBlobToBase64 = blob => new Promise(resolve => {
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onloadend = () => {
+        const base64data = reader.result;
+        resolve(base64data);
+    };
+});
+
+
+const fetchTTS = async(what, voice) => {
+    const url = "http://jtag.me:1027/";
+    const formData = new FormData();
+	if(!what) what ="check this out. A quote can be understood as a character depicting direct speech or it can be understood as the speech itself, a citation.";
+    formData.append("data", what);  
+if(!voice) voice ="v2/en_speaker_1";
+    formData.append("voice", voice);
+
+    try {
+		console.log("cnnecting"+url);
+        const response = await fetch(url, {
+            method: "POST",
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+		//return await response.blob().arrayBuffer();
+		//nochaines = await response.blob();
+        //return await nochaines.arrayBuffer();
+		const blob = await response.blob();
+		const base64 = await convertBlobToBase64(blob);
+		return base64;
+        //return blob;
+    } catch (error) {
+        console.error("Error fetching audio:", error);
+    }
+};

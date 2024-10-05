@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"default_locale": "en",
 	"name": "AccessAI",
-	"authors": "Rainer Talvar, Henrik Peegel, Hans Herman Männik, Oskars Grauzis",
+	"author": "Rainer Talvar, Henrik Peegel, Hans Herman Männik, Oskars Grauzis",
 	"homepage_url": "https://github.com/RainerTal/Baltic-AI-Hack",
 	"icons": {
 		"16": "assets/icon/accessai_16.png",
