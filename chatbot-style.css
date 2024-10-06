@@ -1,0 +1,377 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+html, body {
+  min-width: 350px;
+  background-color: transparent;
+}
+
+.accessibility-popup {
+  background-color: #f2f2f2;
+  display: flex;
+  max-width: 350px;
+  padding: 0 0 0;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+  color: #fff;
+  border: 1px solid #c3c3c3;
+}
+
+.popup-header {
+  background-color: #202020;
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  justify-content: space-between;
+  padding: 9px 18px;
+}
+
+.header-logo {
+  display: flex;
+  gap: 7px;
+}
+
+.logo-icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 20px;
+}
+
+.close-icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 14px;
+  margin: auto 0;
+}
+
+.menu-title {
+  background-color: #007bff;
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  font-weight: 300;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.arrow-icon {
+  aspect-ratio: 0.93;
+  object-fit: contain;
+  width: 13px;
+  margin: auto 0;
+}
+
+.menu-content {
+  display: flex;
+  margin-top: 5px;
+  width: 100%;
+  flex-direction: column;
+  font-size: 24px;
+  color: #000;
+  font-weight: 400;
+  padding: 0px;
+  align-items: center;
+}
+
+.language-selector {
+  align-self: start;
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.globe-icon {
+  aspect-ratio: 1.09;
+  object-fit: contain;
+  width: 12px;
+  border-radius: 39px;
+  margin: auto 0;
+  margin-left: 30px;
+}
+
+.language-dropdown {
+  display: flex;
+  gap: 2px;
+}
+
+.dropdown-icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 9px;
+  margin: auto 0;
+}
+
+.divider {
+  width: 90%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.menu-option {
+  border-radius: 10px;
+  display: flex;
+  margin-top: 7px;
+  gap: 20px;
+  padding: 16px 20px;
+  border: 1px solid #c3c3c3;
+  text-align: left;
+  z-index: 9999;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.menu-option:hover {
+  background-color: #f6f6f6;
+  transform: scale(1.02);
+}
+
+.menu-container {
+  border-radius: 10px;
+  display: flex;
+  margin-top: 7px;
+  gap: 20px;
+  padding: 16px 20px;
+  border: 1px solid #c3c3c3;
+  text-align: left;
+  z-index: 9999;
+  background-color: rgb(255, 255, 255);
+  flex-direction: column;
+  width: 250px;
+}
+
+p {
+  font-size: 14px;
+  color: #626262;
+}
+
+.option-icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  width: 24px;
+  margin: auto 0;
+}
+
+.option-text {
+  flex-grow: 1;
+  width: 215px;
+  font-size: 24px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1px;
+  background: #d3d3d3;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Styling for the slider thumb */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #027BFF;
+  border: 1px solid black; /* Add a black border around the thumb */
+}
+
+.slider-value {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.slider-value-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.execute-button {
+  border-width: 1px;
+  border-radius: 10px;
+  display: flex;
+  margin-top: 7px;
+  gap: 20px;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: #027BFF;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Add transition for smooth hover effect */
+}
+
+.execute-button:hover {
+  background-color: #0069D9;
+  transform: translateY(-2px); /* Make the button slightly float */
+
+}
+
+.execute-button-text {
+  flex-grow: 1;
+  width: 215px;
+  font-size: 21px;
+  font-weight: 500;
+  color: #fff;
+}
+
+#translating-into {
+  color: #000;
+}
+
+#language-select{
+  font-size: 15px;
+  width: 50%;
+  border-radius: 10px;
+  border-width: 1.5px;
+  border-color: #000;
+  padding: 6.25px
+}
+
+a {
+  text-decoration: none; /* Removes underline */
+  color: inherit;        /* Inherits color from parent */
+}
+
+.back-button {
+background: none;
+color: inherit;
+border: none;
+padding: 0;
+font: inherit;
+cursor: pointer;
+outline: inherit;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+}
+
+/*style.css*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Dm Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #f7f7f7;
+}
+
+.chatBot {
+  border: 1px solid #C3C3C3;
+  border-radius: 10px;
+  margin: 25px auto;
+  overflow: hidden;
+  width: 300px;
+  overflow-y: clip;
+  height: 400px;
+  background: rgb(255, 255, 255);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.chatbox {
+  padding: 15px;
+  list-style: none;
+  overflow-y: auto;
+  height: 277px;
+}
+
+.chatbox li {
+  margin-bottom: 10px;
+}
+
+.chat p {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.chat-outgoing p {
+  background-color: #162887;
+  color: #fff;
+  margin-left: auto;
+}
+
+.chat-incoming p {
+  background-color: #eaeaea;
+}
+
+.chat-input {
+  padding: 10px;
+}
+
+.chat-input textarea {
+  width: 300px;
+  padding: 15px;
+  border: 1px solid #C3C3C3;
+  border-radius: 0px;
+  resize: none;
+  outline: none;
+  overflow-y: hidden;
+  background-color: #F2F2F2;
+  font-size: 14px;
+  color: #000000;
+  font-family: dm sans, sans-serif;
+  font-weight: 400;
+  margin-top: -15px;
+  margin-left: -11px;
+  height: 50px;
+}
+
+#cross {
+  float: right;
+  position: relative;
+  top: -30px;
+  left: -15px;
+  cursor: pointer;
+  color: white;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+#cross:hover {
+  color: #002955;
+  transition: all .5s;
+}
+
+.chatbox .chat p.error {
+  color: #ffffff;
+  background-color: #ff3737e8;
+}
+
+#sendBTN {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 7px;
+  background-color: #027BFF;
+  cursor: pointer;
+  color: white;
+  margin-top: 12px;
+}
