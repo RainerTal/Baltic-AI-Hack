@@ -1,1 +1,1 @@
-# Baltic-AI-Hack
+A simple HTML/JS/CSS starter template
