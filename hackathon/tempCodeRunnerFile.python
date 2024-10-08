@@ -1,3 +1,0 @@
-x = """Translated Output:['Israel appears determined to retaliate against Iran's rocket attack', 'What Hamas got wrong about Middle East conflict', 'War aimed at luring allies of military group has instead alienated them', 'After Hezbollah leader assassination, Iranian victory could mean nuclear bomb']"""
-
-print(x.split("["))
