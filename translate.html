@@ -39,7 +39,7 @@
       <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/23f255448347754e6fdc19cfa3657edfda90e2e8b0e0644d64c76553cdf8080c?placeholderIfAbsent=true&apiKey=b50c47ad16814cc09a02369982a226f5" alt="" class="divider" />
       
       <nav>
-        <div class="menu-container" id="simplifyText-button" onclick="simplifyText()">
+        <div class="menu-container" id="simplifyText-button">
           <div style="flex-direction: row;">
             <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1e1c170405b3b38ea6d48869f127cfa3002908e34f98fbd5ccabdaadb9851f03?placeholderIfAbsent=true&apiKey=b50c47ad16814cc09a02369982a226f5" alt="" class="option-icon" />
             <span class="option-text">Translate</span>           
@@ -50,11 +50,19 @@
           <p id="translating-into">Translating website into...</p>
           
           <select id="language-select">
-            <option value="en" data-flag="🇺🇸">🇺🇸 English</option>
-            <option value="es" data-flag="🇪🇸">🇪🇸 Spanish</option>
-            <option value="fr" data-flag="🇫🇷">🇫🇷 French</option>
-            <option value="de" data-flag="🇩🇪">🇩🇪 German</option>
-            <!-- Add more languages as needed -->
+            <option value="english">🇺🇸 English</option>
+            <option value="spanish">🇪🇸 Spanish</option>
+            <option value="french">🇫🇷 French</option>
+            <option value="german">🇩🇪 German</option>
+            <option value="italian">🇮🇹 Italian</option>
+            <option value="portuguese">🇵🇹 Portuguese</option>
+            <option value="japanese">🇯🇵 Japanese</option>
+            <option value="chinese">🇨🇳 Chinese</option>
+            <option value="russian">🇷🇺 Russian</option>
+            <option value="arabic">🇦🇪 Arabic</option>
+            <option value="korean">🇰🇷 Korean</option>
+            <option value="hindi">🇮🇳 Hindi</option>
+            <option value="swedish">🇸🇪 Swedish</option>
           </select>
           
           <button class="execute-button">
@@ -65,6 +73,6 @@
       </nav>
     </div>
   </section>
-  <script src="main.js"></script>
+  <script src="translate.js"></script>
 </body>
 </html>

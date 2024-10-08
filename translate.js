@@ -1,30 +1,13 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const translateButton = document.querySelector('.execute-button');
-    if (translateButton) {
-        translateButton.addEventListener('click', function () {
-            // Get the selected language from the dropdown
-            const languageSelect = document.getElementById('language-select');
-            if (languageSelect) {
-                const selectedLanguage = languageSelect.value;
-
-                // Send a message to the content script to perform the translation
-                chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-                    chrome.tabs.sendMessage(tabs[0].id, {
-                        action: "translatePage",
-                        language: selectedLanguage
-                    }, function (response) {
-                        if (chrome.runtime.lastError) {
-                            console.error("Error sending message:", chrome.runtime.lastError.message);
-                        } else {
-                            console.log("Response from content script:", response);
-                        }
-                    });
-                });
-            } else {
-                console.error("Language select element not found.");
-            }
+document.querySelector('.execute-button').addEventListener('click', () => {
+    // Get the currently selected language from the dropdown
+    const selectedLanguage = document.querySelector('#language-select').value;
+    
+    // Query the active tab
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        // Send a message to the content script with the action and selected language
+        chrome.tabs.sendMessage(tabs[0].id, { 
+            action: "start-translate",
+            language: selectedLanguage // Transmit the selected language
         });
-    } else {
-        console.error("Translate button not found.");
-    }
+    });
 });
