@@ -4,8 +4,7 @@
   "version": "1.0",
   "description": "A simple Chrome extension to demonstrate basic concepts.",
   "action": {
-    "default_popup": "index.html",
-    "default_icon": "Icons/icon32.png"
+    "default_popup": "index.html"
   },
   "permissions": [
     "activeTab",
