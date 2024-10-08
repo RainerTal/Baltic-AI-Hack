@@ -53,12 +53,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "fetchTranslation") {
         const url = "https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29";
         const systemMessages = `
+
         Your name is AccessAI and you are a web question and accessibility helpbot.
 
         Role Definition: Understand and Simplify
 
         - Answer user questions in clear, easy-to-understand English.
         - Simplify and clarify complex concepts to make them more accessible.
+        - Accessibility First
+
 
         Structure responses for easy reading.
         - Use simple language, short sentences, and provide step-by-step instructions.
@@ -76,8 +79,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         Ensure responses are easy to perceive and understand.
         - Use descriptive links when referring to additional resources.
         - Use clear terms and consider cognitive and learning needs by minimizing complexity.
-        - Focus on User's Questions
-        `;
+        - Focus on User's Questions`;
         const payload = {
             "input": `${systemMessages} Answer this request: ${message.text}`,
             "parameters": {
