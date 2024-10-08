@@ -1,69 +1,79 @@
-// script.js
+// chatbot-script.js
 
-const chatInput = 
-    document.querySelector('.chat-input textarea');
-const sendChatBtn = 
-    document.querySelector('.chat-input button');
+const chatInput = document.querySelector('.chat-input textarea');
+const sendChatBtn = document.querySelector('.chat-input button');
 const chatbox = document.querySelector(".chatbox");
-
-
-//OpenAI Free APIKey
 
 const createChatLi = (message, className) => {
     const chatLi = document.createElement("li");
     chatLi.classList.add("chat", className);
-    let chatContent = 
-        className === "chat-outgoing" ? `<p>${message}</p>` : `<p>${message}</p>`;
-    chatLi.innerHTML = chatContent;
+    chatLi.innerHTML = `<p>${message}</p>`;
     return chatLi;
-}
+};
 
+// Function to send a message to the background script
+const sendMessageToBackground = (message) => {
+    chrome.runtime.sendMessage({ action: 'fetchTranslation', text: message });
+};
+
+// Variable to hold the reference to the "Thinking..." message element
+let thinkingMessageLi;
+
+const displayResponse = (translatedText) => {
+    // Remove the "Thinking..." message if it exists
+    if (thinkingMessageLi) {
+        chatbox.removeChild(thinkingMessageLi);
+        thinkingMessageLi = null; // Clear the reference
+    }
+
+    // Create and append the incoming message with the translated text
+    const incomingChatLi = createChatLi(translatedText, "chat-incoming");
+    chatbox.appendChild(incomingChatLi);
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+};
+
+// Function to display an error message in the chatbox
+const displayError = (error) => {
+    const errorChatLi = createChatLi(`An error occurred: ${error}`, "chat-incoming");
+    chatbox.appendChild(errorChatLi);
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+};
 
 const handleChat = () => {
-    userMessage = chatInput.value.trim();
+    const userMessage = chatInput.value.trim();
     if (!userMessage) {
-        return;
+        return; // Exit if there is no user message
     }
-    chatbox
-    .appendChild(createChatLi(userMessage, "chat-outgoing"));
-    chatbox
-    .scrollTo(0, chatbox.scrollHeight);
 
-    chatInput.value = '';
+    // Display the user's outgoing message
+    chatbox.appendChild(createChatLi(userMessage, "chat-outgoing")); 
+    chatbox.scrollTo(0, chatbox.scrollHeight); 
 
+    chatInput.value = ''; // Clear the input field
+
+    // Create and display the "Thinking..." message
     setTimeout(() => {
-        const incomingChatLi = createChatLi("Thinking...", "chat-incoming")
-        chatbox.appendChild(incomingChatLi);
-        chatbox.scrollTo(0, chatbox.scrollHeight);
-        generateResponse(incomingChatLi);
-    }, 600);
-}
+        thinkingMessageLi = createChatLi("Thinking...", "chat-incoming");
+        chatbox.appendChild(thinkingMessageLi);
+        chatbox.scrollTo(0, chatbox.scrollHeight); 
 
+        sendMessageToBackground(userMessage); // Send user message to background script
+    }, 600);
+};
+
+// Add event listener for sending messages
 sendChatBtn.addEventListener("click", handleChat);
 
+// Allow sending messages with the Enter key
 chatInput.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
-      handleChat(); 
+        handleChat(); 
     }
-  });
+});
 
-function cancel() {
-    let chatbotcomplete = document.querySelector(".chatBot");
-    if (chatbotcomplete.style.display != 'none') {
-        chatbotcomplete.style.display = "none";
+// Listener for messages from the background script
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === 'displayTranslation') {
+        displayResponse(message.text); // Call displayResponse with translated text
     }
-}
-
-document.getElementById('sendBTN').addEventListener('click', function () {
-    const message = document.getElementById('chatMessage').value;
-
-    // Send a message to the background worker
-    chrome.runtime.sendMessage({ action: "fetchTranslation", text: message }, function(response) {
-        if (response && response.translatedText) {
-            console.log(response.translatedText);
-            // You can now use the translated text as needed
-        } else {
-            console.error('Failed to get a response from the background script.');
-        }
-    });
 });
